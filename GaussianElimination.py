@@ -29,20 +29,18 @@ def GaussianElimination(A, B, d=True):
                     print(format(B[p][0], '.4f'))
                 print()
 
-    res = []
+    resultList = []
 
     for i in range(matrixDimension - 1, -1, -1):
         sum = 0
         for j in range(matrixDimension - 1, i, -1):
-            sum += A[i][j] * res[matrixDimension - 1 - j]
+            sum += A[i][j] * resultList[matrixDimension - 1 - j]
 
-        res.append((B[i] - sum) / A[i][i])
+        resultList.append((B[i] - sum) / A[i][i])
 
-    res.reverse()
+    resultList.reverse()
 
-    result = num.array(res)
-
-    return result
+    return num.array(resultList)
 
 
 print('Enter number of unknown variable: ')
